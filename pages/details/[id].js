@@ -1,23 +1,20 @@
+import { useRouter } from "next/router";
+import useDetailsData from "../../hooks/useDetailsData";
 import DetailsPage from "../../screens/DetailsPage";
 
-function Details({ data }) {
-  return <DetailsPage data={data} />;
-}
-export async function getServerSideProps(ctx) {
-  const { id, media_type } = ctx.query;
+function Details() {
+  const { id, media_type } = useRouter().query;
 
-  const key = process.env.NEXT_PUBLIC_TMDB_API_KEY;
+  const { data, status } = useDetailsData(id, media_type);
 
-  const res = await fetch(
-    `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${key}&language=en-US&append_to_response=credits,videos,reviews,recommendations,external_ids`,
-  );
-  const data = await res.json();
+  console.log(data);
 
-  return {
-    props: {
-      data,
-    },
-  };
+  if (status === "loading") {
+    return <p>Loading...</p>;
+  }
+
+  return <>{data && <DetailsPage data={data} />}</>;
+  // return <h1>gg</h1>;
 }
 
 export default Details;
