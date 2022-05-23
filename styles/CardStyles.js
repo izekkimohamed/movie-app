@@ -1,0 +1,89 @@
+import styled from "styled-components";
+
+export const CardStyles = styled.li`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+  /* border: 1px solid #bbbbbb55; */
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+  }
+  .poster {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    &:before {
+      content: "+";
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      font-size: 5em;
+      font-weight: bold;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #27d2c5;
+      background: rgba(25, 26, 31, 0.5);
+
+      transform: translateY(100%);
+      transition: transform 0.2s ease-in-out;
+      pointer-events: none;
+    }
+    &:hover {
+      &:before {
+        transform: translateY(0);
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  .details {
+    width: 100%;
+    padding: 0.5rem 0.1rem;
+    z-index: 3;
+    background-color: rgba(25, 26, 31, 1);
+    .title {
+      max-width: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+    .date {
+      /* font-weight: 200; */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .media-type {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid #27d2c5;
+        color: #fff;
+      }
+    }
+  }
+  svg {
+    width: 1.5rem;
+  }
+`;
