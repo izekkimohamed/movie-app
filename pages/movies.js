@@ -1,4 +1,4 @@
-import MoviesPage from "/screens/MoviesPage";
+import MoviesPage from "../screens/MoviesPage";
 
 function movies() {
   return <MoviesPage />;

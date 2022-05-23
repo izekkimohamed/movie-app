@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { getGenre } from "../libs/getGenre";
-import { CarouselStyles } from "/styles/CarouselStyles";
+import { CarouselStyles } from "../styles/CarouselStyles";
 
 const imgURL = "https://image.tmdb.org/t/p/original";
 

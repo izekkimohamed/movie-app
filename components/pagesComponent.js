@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { PagesContainerStyles } from "/styles/PagesContainerStyles";
-import { PaginationStyles } from "/styles/paginationStyles";
+import { PaginationStyles } from "../styles/paginationStyles";
 import CardsList from "./CardsList";
 
 function PagesContainer({ section }) {

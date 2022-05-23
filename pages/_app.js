@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { QueryClient, QueryClientProvider } from "react-query";
-import Layout from "/components/Layout";
+import Layout from "../components/Layout";
 
 import { GlobalStyles } from "/styles/GlobalStyles";
 

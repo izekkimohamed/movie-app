@@ -1,4 +1,4 @@
-import TvPage from "/screens/TvPage";
+import TvPage from "../screens/TvPage";
 
 function tvShows() {
   return <TvPage />;

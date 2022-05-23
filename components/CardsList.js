@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { CardsListStyles } from "/styles/CardsListStyles";
+import { CardsListStyles } from "../styles/CardsListStyles";
 import Card from "./Card";
 
 function CardsList({ section, movies }) {

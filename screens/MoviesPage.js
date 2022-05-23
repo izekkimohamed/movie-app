@@ -1,4 +1,4 @@
-import PagesContainer from "/components/pagesComponent";
+import PagesContainer from "../components/pagesComponent";
 
 function MoviesPage() {
   return <PagesContainer section="Popular Movies" />;

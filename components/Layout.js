@@ -1,4 +1,4 @@
-import { AppContainer } from "/styles/AppContainer";
+import { AppContainer } from "../styles/AppContainer";
 import Navbar from "./Navbar";
 
 function Layout({ children }) {

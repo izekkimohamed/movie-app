@@ -1,5 +1,5 @@
-import Details from "/components/Details";
-import DetailsHero from "/components/DetailsHero";
+import Details from "../components/Details";
+import DetailsHero from "../components/DetailsHero";
 
 function DetailsPage({ data }) {
   return (

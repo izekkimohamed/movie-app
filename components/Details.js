@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { BsFacebook, BsInstagram, BsTwitter, BsLink } from "react-icons/bs";
 import { FaImdb } from "react-icons/fa";
-import { DetailsStyles } from "/styles/DetailsStyles";
+import { DetailsStyles } from "../styles/DetailsStyles";
 
 function Details({ data }) {
   const { credits, budget, revenue, external_ids, reviews } = data;

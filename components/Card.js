@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Percentage from "./Percentage";
-import { CardStyles } from "/styles/CardStyles";
+import { CardStyles } from "../styles/CardStyles";
 
 const imgURL = "https://image.tmdb.org/t/p/original";
 

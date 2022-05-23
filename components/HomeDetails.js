@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { HomeDetailsStyles } from "/styles/HomeDetailsStyles";
+import { HomeDetailsStyles } from "../styles/HomeDetailsStyles";
+
 import CardsList from "./CardsList";
 
 function HomeDetails({ movies, shows }) {

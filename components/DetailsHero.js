@@ -2,7 +2,7 @@
 import { useColor } from "color-thief-react";
 import Image from "next/image";
 import Percentage from "./Percentage";
-import { DetailsHeroStyles } from "/styles/DetailsHeroStyles";
+import { DetailsHeroStyles } from "../styles/DetailsHeroStyles";
 const imgURL = `https://image.tmdb.org/t/p/original`;
 
 function DetailsHero({ data }) {
