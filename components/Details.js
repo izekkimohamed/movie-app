@@ -1,7 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-
 import { useRouter } from "next/router";
-
 import useDetailsData from "../hooks/useDetailsData";
 import { DetailsStyles } from "../styles/DetailsStyles";
 import Cast from "./details/Cast";
@@ -13,7 +11,7 @@ function Details() {
   const { id, media_type } = useRouter().query;
   const { data, isLoading, isError } = useDetailsData(id, media_type);
 
-  if (isLoading) {
+  if (!data) {
     return <p>Loading...</p>;
   }
   if (isError) {
@@ -46,8 +44,10 @@ function Details() {
         original_language={original_languge}
         homepage={homepage}
       />
-      <Reviews reviews={reviews} />
-      <Recommendations recommendations={recommendations} />
+      {reviews.results.length > 0 && <Reviews reviews={reviews} />}
+      {recommendations.length > 0 && (
+        <Recommendations recommendations={recommendations} />
+      )}
     </DetailsStyles>
   );
 }
