@@ -1,11 +1,11 @@
 import Details from "../components/Details";
 import DetailsHero from "../components/DetailsHero";
 
-function DetailsPage({ data }) {
+function DetailsPage() {
   return (
     <>
-      <DetailsHero data={data} />
-      <Details data={data} />
+      <DetailsHero />
+      <Details />
     </>
   );
 }

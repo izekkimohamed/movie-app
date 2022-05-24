@@ -2,12 +2,11 @@ import styled from "styled-components";
 
 export const DetailsHeroStyles = styled.div`
   padding: 5rem 1rem 1rem 1rem;
-
   background: linear-gradient(
       to right,
-      ${({ color }) => (color ? `${color}` : "rgba(0 0 0 .5)")} 30%,
-      ${({ color }) => (color ? `${color}CC` : "rgba(0 0 0 .5)")} 70%,
-      ${({ color }) => (color ? `${color}` : "rgba(0 0 0 .5)")} 100%
+      ${({ color }) => color && `${color}`} 30%,
+      ${({ color }) => color && `${color}CC`} 70%,
+      ${({ color }) => color && `${color}`} 100%
     ),
     url(${({ src }) => `${src}`});
   background-size: cover;
@@ -35,7 +34,7 @@ export const DetailsHeroStyles = styled.div`
     img {
       object-fit: cover;
       object-position: center;
-      border-radius: 1rem;
+      border-radius: 1rem 0 0 1rem;
     }
 
     .content {
