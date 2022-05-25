@@ -2,7 +2,7 @@
 import { useRouter } from "next/router";
 import useDetailsData from "../hooks/useDetailsData";
 import { DetailsStyles } from "../styles/DetailsStyles";
-import Cast from "./details/Cast";
+import CastList from "./details/Cast";
 import Recommendations from "./details/Recommendations";
 import Reviews from "./details/Reviews";
 import Status from "./details/Status";
@@ -36,7 +36,7 @@ function Details() {
 
   return (
     <DetailsStyles>
-      <Cast cast={cast} />
+      <CastList casts={cast} />
       <Status
         budget={budget}
         revenue={revenue}

@@ -2,8 +2,9 @@
 import Link from "next/link";
 import Percentage from "./Percentage";
 import { CardStyles } from "../styles/CardStyles";
+import Image from "next/image";
 
-const imgURL = "https://image.tmdb.org/t/p/original";
+const imgURL = "https://image.tmdb.org/t/p/w300";
 
 function Card({ movie }) {
   const title = movie.title || movie.name;
@@ -14,11 +15,13 @@ function Card({ movie }) {
         href={`/details/${movie.id}?media_type=${movie.media_type}`}
         passHref>
         <div className="poster pointer">
-          <img
-            title={title}
-            alt={title}
-            className="film-poster-img lazyloaded"
+          <Image
             src={`${imgURL}${movie.poster_path}`}
+            alt={title}
+            layout="fill"
+            width={300}
+            height={450}
+            title={title}
           />
         </div>
       </Link>{" "}

@@ -20,6 +20,7 @@ export const CardsListStyles = styled.div`
   .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-auto-rows: minmax(350px, auto);
     grid-gap: 1rem;
     list-style: none;
   }

@@ -5,7 +5,7 @@ import Color from "color-thief-react";
 import Percentage from "./Percentage";
 import { DetailsHeroStyles } from "../styles/DetailsHeroStyles";
 import useDetailsData from "../hooks/useDetailsData";
-const imgURL = `https://image.tmdb.org/t/p/original`;
+const imgURL = `https://image.tmdb.org/t/p/w500`;
 
 function DetailsHero() {
   const { id, media_type } = useRouter().query;
@@ -33,7 +33,7 @@ function DetailsHero() {
                 layout="responsive"
                 width={300}
                 height={450}
-                // priority={true}
+                priority
               />
             </div>
 

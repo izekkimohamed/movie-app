@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import Link from "next/link";
 import { getGenre } from "../libs/getGenre";
 import { CarouselStyles } from "../styles/CarouselStyles";
@@ -44,7 +45,13 @@ export default function CarouselContainer({ movies }) {
                 </div>{" "}
               </div>
             </div>
-            <img src={`${imgURL}${movie.backdrop_path}`} alt={movie.title} />
+            <Image
+              priority
+              src={`${imgURL}${movie.backdrop_path}`}
+              alt={movie.title}
+              title={movie.title}
+              layout="fill"
+            />
           </div>
         );
       })}

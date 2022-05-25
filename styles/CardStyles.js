@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const CardStyles = styled.li`
-  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
-  /* border: 1px solid #bbbbbb55; */
   overflow: hidden;
   transition: all 0.2s ease-in-out;
   cursor: pointer;

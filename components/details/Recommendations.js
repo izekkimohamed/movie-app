@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -21,7 +22,13 @@ function Recommendations({ recommendations }) {
                   key={recommendation.id}>
                   <div className="cast-item pointer">
                     <div className="cast-item-container">
-                      <img src={imgSrc} alt={recommendation.title} />
+                      <Image
+                        layout="responsive"
+                        width={300}
+                        height={450}
+                        src={imgSrc}
+                        alt={recommendation.title}
+                      />
                       <div className="cast-item-info">
                         <h3>{recommendation.title || recommendation.name}</h3>
                         <p>{recommendation.release_date}</p>
