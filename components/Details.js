@@ -6,13 +6,14 @@ import Cast from "./details/Cast";
 import Recommendations from "./details/Recommendations";
 import Reviews from "./details/Reviews";
 import Status from "./details/Status";
+import Loader from "./Loader";
 
 function Details() {
   const { id, media_type } = useRouter().query;
   const { data, isLoading, isError } = useDetailsData(id, media_type);
 
   if (!data) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
   if (isError) {
     return <p>Error...</p>;

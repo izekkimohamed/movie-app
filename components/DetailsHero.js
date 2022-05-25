@@ -11,7 +11,7 @@ function DetailsHero() {
   const { id, media_type } = useRouter().query;
   const { data, isLoading, isError } = useDetailsData(id, media_type);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p></p>;
   if (isError) return <p>Error...</p>;
 
   const src = `${imgURL}${data.backdrop_path}`;
