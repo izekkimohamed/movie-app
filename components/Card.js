@@ -8,7 +8,7 @@ const imgURL = "https://image.tmdb.org/t/p/w300";
 
 function Card({ movie }) {
   const title = movie.title || movie.name;
-  const releaseDate = movie.release_date || movie.first_air_date;
+  const releaseDate = movie.release_date || movie.first_air_date || "-";
   return (
     <CardStyles>
       <Link
@@ -19,8 +19,6 @@ function Card({ movie }) {
             src={`${imgURL}${movie.poster_path}`}
             alt={title}
             layout="fill"
-            width={300}
-            height={450}
             title={title}
           />
         </div>

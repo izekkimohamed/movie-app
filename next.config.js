@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
+module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   basUrl: "/",
   images: {
@@ -9,6 +13,4 @@ const nextConfig = {
     // ssr and displayName are configured by default
     styledComponents: true,
   },
-};
-
-module.exports = nextConfig;
+});
