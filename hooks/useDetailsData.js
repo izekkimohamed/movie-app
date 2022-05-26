@@ -15,6 +15,7 @@ export default function useDetailsData() {
         .then((res) => res.data),
 
     {
+      refetchOnWindowFocus: false,
       retry: 1,
     },
   );
