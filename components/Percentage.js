@@ -20,13 +20,15 @@ function Percentage({ percent }) {
     <CircularProgressbar
       value={percentage}
       text={`${percentage}%`}
+      background
       styles={buildStyles({
         textSize: "32px",
         pathTransitionDuration: 0.5,
         pathColor: `${getColor(percentage)}`,
         textColor: `${getColor(percentage)}`,
-        trailColor: "rgba(255,255,255, 0.2)",
+        trailColor: "rgba(0,0,0, 0.2)",
         strokeLinecap: "round",
+        backgroundColor: `${getColor(percentage)}91`,
       })}
     />
   );

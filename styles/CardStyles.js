@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const CardStyles = styled.li`
   width: 100%;
   height: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,8 +25,8 @@ export const CardStyles = styled.li`
     justify-content: center;
     width: 100%;
     height: 100%;
-    &:before {
-      content: "+";
+    &:after {
+      content: "";
       display: grid;
       place-items: center;
       width: 100%;
@@ -36,9 +37,12 @@ export const CardStyles = styled.li`
       top: 0;
       left: 0;
       color: #27d2c5;
-      background: rgba(25, 26, 31, 0.5);
-
-      transform: translateY(100%);
+      z-index: 5;
+      background: linear-gradient(
+        to bottom,
+        rgba(25, 26, 31, 0.8) 1%,
+        transparent 100%
+      );
       transition: transform 0.2s ease-in-out;
       pointer-events: none;
     }
@@ -56,7 +60,7 @@ export const CardStyles = styled.li`
   }
   .details {
     width: 100%;
-    padding: 0.5rem 0.1rem;
+    padding: 0.5rem;
     z-index: 3;
     background-color: rgba(25, 26, 31, 1);
     .title {
@@ -82,6 +86,12 @@ export const CardStyles = styled.li`
         color: #fff;
       }
     }
+  }
+  .percent {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
   }
   svg {
     width: 1.5rem;

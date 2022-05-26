@@ -10,6 +10,9 @@ function Card({ movie }) {
   const releaseDate = movie.release_date || movie.first_air_date || "-";
   return (
     <CardStyles>
+      <div className="percent">
+        <Percentage percent={movie.vote_average} />
+      </div>
       <Link
         href={`/details/${movie.id}?media_type=${movie.media_type}`}
         passHref>
@@ -26,7 +29,9 @@ function Card({ movie }) {
         <h5 className="title">{title}</h5>
         <div className="date">
           <p className="year">{releaseDate.split("-")[0]}</p>
-          <Percentage percent={movie.vote_average} />
+          <div className="media-type">
+            <p>{movie.media_type}</p>
+          </div>
         </div>
       </div>{" "}
     </CardStyles>
