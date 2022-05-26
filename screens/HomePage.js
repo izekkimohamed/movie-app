@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import useHomeData from "../hooks/useHomeData";
 import CarouselContainer from "../components/Carousel";
 import HomeDetails from "../components/HomeDetails";

@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { CardsListStyles } from "../styles/CardsListStyles";
 import Card from "./Card";
 

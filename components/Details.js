@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { useRouter } from "next/router";
 import useDetailsData from "../hooks/useDetailsData";
 import { DetailsStyles } from "../styles/DetailsStyles";

@@ -20,6 +20,7 @@ export const DetailsStyles = styled.div`
     margin-bottom: 5rem;
     .cast-list {
       width: 100%;
+      grid-column: span 3;
     }
     h1 {
       grid-column: span 1;
@@ -36,7 +37,7 @@ export const DetailsStyles = styled.div`
     overflow: scroll hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    width: 90%;
+    width: 100%;
     margin-top: 3.5rem;
   }
   .cast-item {
@@ -100,12 +101,13 @@ export const DetailsStyles = styled.div`
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     gap: 1rem;
+    margin-left: 2rem;
     .status-details {
       grid-column: span 2;
     }
     @media (max-width: 768px) {
-      /* display: block; */
       grid-column: span 3;
+      margin-left: 0;
       .status-details {
         grid-column: span 1;
       }

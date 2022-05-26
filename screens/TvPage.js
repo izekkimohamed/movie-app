@@ -1,4 +1,4 @@
-import { useState } from "react";
+import Loader from "../components/Loader";
 import PagesContainer from "../components/pagesComponent";
 import useTvData from "../hooks/useTvData";
 
@@ -6,7 +6,7 @@ function TvPage() {
   const { data, isLoading, isError } = useTvData();
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Loader />;
   }
   if (isError) {
     return <h1>Error</h1>;

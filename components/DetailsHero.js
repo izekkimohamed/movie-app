@@ -1,8 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Color from "color-thief-react";
 import Percentage from "./Percentage";
+import Loader from "./Loader";
 import { DetailsHeroStyles } from "../styles/DetailsHeroStyles";
 import useDetailsData from "../hooks/useDetailsData";
 const imgURL = `https://image.tmdb.org/t/p/w500`;
@@ -11,7 +11,7 @@ function DetailsHero() {
   const { id, media_type } = useRouter().query;
   const { data, isLoading, isError } = useDetailsData(id, media_type);
 
-  if (isLoading) return <p></p>;
+  if (isLoading) return <Loader />;
   if (isError) return <p>Error...</p>;
 
   const src = `${imgURL}${data.backdrop_path}`;

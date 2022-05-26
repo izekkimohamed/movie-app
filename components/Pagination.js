@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { PaginationStyles } from "../styles/PaginationStyles";
 
 function Pagination({ media }) {

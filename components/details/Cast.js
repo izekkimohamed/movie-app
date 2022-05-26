@@ -13,22 +13,21 @@ function CastList({ casts }) {
 }
 
 const Cast = ({ cast }) => {
-  const imgSrc = `https://image.tmdb.org/t/p/w300/${cast.profile_path}`;
+  const imgSrc =
+    cast.profile_path !== null
+      ? `https://image.tmdb.org/t/p/w300/${cast.profile_path}`
+      : "/placeholder.png";
 
   return (
     <div className="cast-item" key={cast.id}>
       <div className="cast-item-container">
-        {cast.profile_path === null ? (
-          <img src="/../../public/placeholder.png" alt={cast.name} />
-        ) : (
-          <Image
-            src={imgSrc}
-            alt={cast.name}
-            layout="responsive"
-            width={300}
-            height={450}
-          />
-        )}
+        <Image
+          src={imgSrc}
+          alt={cast.name}
+          layout="responsive"
+          width={300}
+          height={450}
+        />
 
         <div className="cast-item-info">
           <h3>{cast.name}</h3>

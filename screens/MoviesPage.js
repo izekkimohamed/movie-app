@@ -1,4 +1,4 @@
-import { useState } from "react";
+import Loader from "../components/Loader";
 import PagesContainer from "../components/pagesComponent";
 import useMoviesData from "../hooks/useMoviesData";
 
@@ -6,7 +6,7 @@ function MoviesPage() {
   const { data, isLoading, isError } = useMoviesData();
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Loader />;
   }
   if (isError) {
     return <h1>Error</h1>;
