@@ -21,7 +21,7 @@ export default function useTvData() {
     }));
   }
 
-  return useQuery(["movies", currentPage], fetchMovies, {
+  return useQuery(["tv", currentPage], fetchMovies, {
     refetchOnWindowFocus: false,
   });
 }
