@@ -13,7 +13,7 @@ function MoviesPage() {
   }
 
   return (
-    <PagesContainer section="Popular Movies" movies={data} meida="movie" />
+    <PagesContainer section="Popular Movies" movies={data} media="movie" />
   );
 }
 
