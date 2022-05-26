@@ -18,6 +18,8 @@ function DetailsHero() {
   const title = data.title || data.name;
   const releaseDate = data.release_date || data.first_air_date;
   const countries = data.production_countries || data.origin_country;
+  const directors = data.credits.crew.filter((crew) => crew.job === "Director");
+  const createdBy = data.created_by;
 
   const imgSrc = `${imgURL}${data.poster_path}`;
   return (
@@ -81,16 +83,24 @@ function DetailsHero() {
                 </div>
               )}
 
-              {/* <div className="details">
-            <p>Director: </p>
-            <strong>
-              {data.created_by.map((crew, i) => crew.name).join(", ") ||
-                data.credits.crew
-                  .filter((crew, i) => crew.job === "Director")
-                  .map((crew, i) => crew.name)
-                  .join(", ")}
-            </strong>
-          </div> */}
+              <div className="details">
+                {directors && (
+                  <>
+                    <p>Directors: </p>
+                    <strong>
+                      {directors.map((director) => director.name).join(", ")}
+                    </strong>
+                  </>
+                )}
+                {createdBy && (
+                  <>
+                    <p>Created By: </p>
+                    <strong>
+                      {createdBy.map((creator) => creator.name).join(", ")}
+                    </strong>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </DetailsHeroStyles>

@@ -1,47 +1,51 @@
 import axios from "axios";
-import { useState } from "react";
 import { useQuery } from "react-query";
 
 export default function useHomeData(type) {
-  const [movies, setMovies] = useState([]);
-  const [shows, setShows] = useState([]);
-  useQuery(
+  const {
+    data: movies,
+    isLoading: moviesLoading,
+    isError: moviesError,
+  } = useQuery(
     ["movies", type],
     () =>
-      axios
-        // Promise.all
-        .get(`/api/movies`)
-        .then((res) =>
-          setMovies(
-            res.data.results.map((movie) => ({
-              ...movie,
-              media_type: "movie",
-            })),
-          ),
-        ),
+      axios.get(`/api/movies`).then((res) =>
+        res.data.results.map((movie) => ({
+          ...movie,
+          media_type: "movie",
+        })),
+      ),
 
     {
+      refetchOnWindowFocus: false,
       retry: 1,
     },
   );
 
-  useQuery(
+  const {
+    data: shows,
+    isLoading: showsLoading,
+    isError: showsError,
+  } = useQuery(
     ["tv", type],
     () =>
       axios.get(`/api/tv`).then((res) =>
-        setShows(
-          res.data.results.map((show) => ({
-            ...show,
-            media_type: "tv",
-          })),
-        ),
+        res.data.results.map((show) => ({
+          ...show,
+          media_type: "tv",
+        })),
       ),
     {
+      refetchOnWindowFocus: false,
       retry: 1,
     },
   );
   return {
     movies,
     shows,
+    moviesLoading,
+    showsLoading,
+    moviesError,
+    showsError,
   };
 }

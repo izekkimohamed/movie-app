@@ -4,12 +4,16 @@ import Card from "./Card";
 function CardsList({ section, movies }) {
   return (
     <CardsListStyles>
-      <h2>{section}</h2>
-      <ul className="cards-container">
-        {movies.map((movie) => (
-          <Card key={movie.id} movie={movie} />
-        ))}
-      </ul>
+      {movies && (
+        <>
+          <h2>{section}</h2>
+          <ul className="cards-container">
+            {movies.map((movie) => (
+              <Card key={movie.id} movie={movie} />
+            ))}
+          </ul>
+        </>
+      )}
     </CardsListStyles>
   );
 }
