@@ -11,9 +11,7 @@ export default function useDetailsData() {
     ["details", id, media_type],
     () =>
       axios
-        .get(
-          `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${key}&append_to_response=credits,videos,reviews,recommendations,external_ids`,
-        )
+        .get(`/api/details?media=${media_type}&id=${id}`)
         .then((res) => res.data),
 
     {

@@ -7,7 +7,6 @@ import { CarouselStyles } from "../styles/CarouselStyles";
 const imgURL = "https://image.tmdb.org/t/p/original";
 
 export default function CarouselContainer({ movies }) {
-  // console.log(movies);
   return (
     <CarouselStyles showStatus={false} showThumbs={false}>
       {movies.map((movie, i) => {

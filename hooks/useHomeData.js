@@ -10,13 +10,7 @@ export default function useHomeData(type) {
     () =>
       axios
         // Promise.all
-        .get(`https://api.themoviedb.org/3/movie/${type}`, {
-          params: {
-            api_key: process.env.NEXT_PUBLIC_TMDB_API_KEY,
-            language: "en-US",
-            page: 1,
-          },
-        })
+        .get(`/api/movies`)
         .then((res) =>
           setMovies(
             res.data.results.map((movie) => ({
@@ -34,22 +28,14 @@ export default function useHomeData(type) {
   useQuery(
     ["tv", type],
     () =>
-      axios
-        .get(`https://api.themoviedb.org/3/tv/${type}`, {
-          params: {
-            api_key: process.env.NEXT_PUBLIC_TMDB_API_KEY,
-            language: "en-US",
-            page: 1,
-          },
-        })
-        .then((res) =>
-          setShows(
-            res.data.results.map((show) => ({
-              ...show,
-              media_type: "tv",
-            })),
-          ),
+      axios.get(`/api/tv`).then((res) =>
+        setShows(
+          res.data.results.map((show) => ({
+            ...show,
+            media_type: "tv",
+          })),
         ),
+      ),
     {
       retry: 1,
     },

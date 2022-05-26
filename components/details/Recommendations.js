@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 function Recommendations({ recommendations }) {
+  const placeHolderImg = "via.placeholder.com/300x300";
   return (
     <div className="recommendations">
       <h1>Recommendations</h1>
@@ -11,10 +12,8 @@ function Recommendations({ recommendations }) {
         <div className="cast-list">
           {recommendations &&
             recommendations.map((recommendation, i) => {
-              const imgSrc =
-                recommendation.poster_path !== null
-                  ? `https://image.tmdb.org/t/p/w300${recommendation.poster_path}`
-                  : placeHolderImg;
+              const imgSrc = `https://image.tmdb.org/t/p/w300${recommendation.poster_path}`;
+
               return (
                 <Link
                   href={`/details/${recommendation.id}?media_type=${recommendation.media_type}`}

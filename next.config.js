@@ -7,7 +7,12 @@ module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   basUrl: "/",
   images: {
-    domains: ["image.tmdb.org", "themoviedb.org", "via.placeholder.com"],
+    domains: [
+      "image.tmdb.org",
+      "themoviedb.org",
+      "https://via.placeholder.com",
+      "https://via.placeholder.com/300x300",
+    ],
   },
   compiler: {
     // ssr and displayName are configured by default

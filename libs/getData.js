@@ -1,7 +1,13 @@
 import axios from "axios";
 
 export async function getData(url, page) {
-  const { data } = await axios.get(url + `&page=${page}`);
+  const { data } = await axios.get(url, {
+    params: {
+      api_key: process.env.NEXT_PRAVITE_TMDB_API_KEY,
+      language: "en-US",
+      page: page,
+    },
+  });
   return data;
 }
 

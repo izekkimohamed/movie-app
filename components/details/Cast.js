@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
-import React from "react";
 
 function CastList({ casts }) {
   return (
@@ -14,22 +13,23 @@ function CastList({ casts }) {
 }
 
 const Cast = ({ cast }) => {
-  const imgURL = `https://image.tmdb.org/t/p/w300/${cast.profile_path}`;
-  const placeHolderImg =
-    "https://via.placeholder.com/300x450?text=no-image&font=lobster";
-
-  const imgSrc = cast.profile_path !== null ? imgURL : placeHolderImg;
+  const imgSrc = `https://image.tmdb.org/t/p/w300/${cast.profile_path}`;
 
   return (
     <div className="cast-item" key={cast.id}>
       <div className="cast-item-container">
-        <Image
-          src={imgSrc}
-          alt={cast.name}
-          layout="responsive"
-          width={300}
-          height={450}
-        />
+        {cast.profile_path === null ? (
+          <img src="/../../public/placeholder.png" alt={cast.name} />
+        ) : (
+          <Image
+            src={imgSrc}
+            alt={cast.name}
+            layout="responsive"
+            width={300}
+            height={450}
+          />
+        )}
+
         <div className="cast-item-info">
           <h3>{cast.name}</h3>
           <p>{cast.character.split("/")[0]}</p>

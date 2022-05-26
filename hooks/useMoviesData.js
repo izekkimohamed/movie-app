@@ -1,26 +1,17 @@
 import axios from "axios";
-import { useState } from "react";
+import { useRouter } from "next/router";
 import { useQuery } from "react-query";
 
-// page 1 = 1 and 2 =>
-// page 2 = 3 and 4 =>
-// page 3 = 5 and 6 =>
-// page 4 = 7 and 8 =>
-// page 5 = 9 and 10 =>
-// page 6 = 11 and 12 =>
-
-export default function useMoviesData(page) {
+export default function useMoviesData() {
+  const pageNum = useRouter().query.page;
+  const page = pageNum === undefined ? 1 : parseInt(pageNum);
   const currentPage = page !== 1 ? page * 2 - 1 : page;
   const nextPage = currentPage + 1;
 
-  async function fetchMovies(key, page) {
+  async function fetchMovies() {
     const [movies1, movie2] = await Promise.all([
-      axios.get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US&page=${currentPage}`,
-      ),
-      axios.get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US&page=${nextPage}`,
-      ),
+      axios.get(`/api/movies?page=${currentPage}`),
+      axios.get(`/api/movies?page=${nextPage}`),
     ]);
     const movies = [...movies1.data.results, ...movie2.data.results];
 
@@ -30,5 +21,7 @@ export default function useMoviesData(page) {
     }));
   }
 
-  return useQuery(["movies", currentPage], fetchMovies);
+  return useQuery(["movies", currentPage], fetchMovies, {
+    refetchOnWindowFocus: false,
+  });
 }

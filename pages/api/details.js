@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export default function handler(req, res) {
-  const page = req.query.page || 1;
-  const type = req.query.type || "popular";
-  const url = `https://api.themoviedb.org/3/tv/${type}`;
+  const { id, media } = req.query;
+
+  const url = `https://api.themoviedb.org/3/${media}/${id}`;
 
   // fetch data with axios
   axios
@@ -11,7 +11,8 @@ export default function handler(req, res) {
       params: {
         api_key: process.env.NEXT_PRIVATE_TMDB_API_KEY,
         language: "en-US",
-        page: page,
+        append_to_response:
+          "credits,videos,reviews,recommendations,external_ids",
       },
     })
     .then((response) => {

@@ -4,7 +4,7 @@ import CarouselContainer from "../components/Carousel";
 import HomeDetails from "../components/HomeDetails";
 
 function HomePage() {
-  const { movies, shows } = useHomeData("popular");
+  const { movies, shows } = useHomeData();
 
   const carouselMovies = movies.filter((movie, i) => i < 8);
 

@@ -16,7 +16,7 @@ function Details() {
     return <Loader />;
   }
   if (isError) {
-    return <p>Error...</p>;
+    console.log(isError);
   }
 
   const {

@@ -3,8 +3,7 @@ import PagesContainer from "../components/pagesComponent";
 import useMoviesData from "../hooks/useMoviesData";
 
 function MoviesPage() {
-  const [page, setPage] = useState(1);
-  const { data, isLoading, isError } = useMoviesData(page);
+  const { data, isLoading, isError } = useMoviesData();
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -14,12 +13,7 @@ function MoviesPage() {
   }
 
   return (
-    <PagesContainer
-      section="Popular Movies"
-      movies={data}
-      page={page}
-      setPage={setPage}
-    />
+    <PagesContainer section="Popular Movies" movies={data} meida="movie" />
   );
 }
 
