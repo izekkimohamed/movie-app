@@ -110,35 +110,33 @@ export const DetailsHeroStyles = styled.div`
   }
   .play-icon {
     all: unset;
-    font-size: clamp(2.5rem, 3.5vw, 3.5rem);
+    font-size: 50px;
     display: grid;
     justify-content: center;
     align-items: center;
     position: relative;
     width: 50px;
     height: 50px;
-    color: #f6f6f6;
+    color: #ccc;
     &:before {
       content: "";
       width: 100%;
       height: 100%;
       position: absolute;
-      inset: 0;
       background-color: rgba(255, 255, 255, 0.3);
       border: 2px solid #fff;
       border-radius: 100px;
-      animation: ${pulse} 2.5s infinite cubic-bezier(0.11, 1.3, 0.26, 1.35);
+      animation: ${pulse} 1.5s infinite cubic-bezier(0.11, 1.3, 0.26, 1.35);
     }
     &:after {
       content: "";
       width: 100%;
       height: 100%;
       position: absolute;
-      inset: 0;
       background-color: rgba(255, 255, 255, 0.3);
       border: 2px solid #fff;
       border-radius: 100px;
-      animation: ${pulse} 2.5s infinite cubic-bezier(0.11, 1.3, 0.26, 1.35);
+      animation: ${pulse} 1.5s infinite cubic-bezier(0.11, 1.3, 0.26, 1.35);
     }
 
     svg {

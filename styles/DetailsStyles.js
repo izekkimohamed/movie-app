@@ -97,6 +97,11 @@ export const DetailsStyles = styled.div`
     @media (max-width: 768px) {
       max-width: 100%;
     }
+    .recommendation {
+      .cards-container {
+        max-width: 180px !important;
+      }
+    }
   }
   .status {
     display: grid;
