@@ -118,6 +118,7 @@ export const DetailsHeroStyles = styled.div`
     width: 50px;
     height: 50px;
     color: #ccc;
+    margin-right: 1rem;
     &:before {
       content: "";
       width: 100%;

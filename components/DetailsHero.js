@@ -27,12 +27,18 @@ function DetailsHero() {
   const trailerVideo = data.videos.results.find(
     (video) => video.type.includes("Trailer") && video.site === "YouTube",
   );
-
+  console.log(trailerVideo);
   const imgSrc = `${imgURL}${data.poster_path}`;
   return (
     <Color src={imgSrc} format="hex" crossOrigin="anonymous" quality="10">
       {({ data: color, loading, error }) => (
         <DetailsHeroStyles color={color} src={src}>
+          {showTrailer && (
+            <TrailerFrame
+              trailerVideo={trailerVideo}
+              setShowTrailer={setShowTrailer}
+            />
+          )}
           <div className="container">
             <div className="poster">
               <Image
@@ -50,11 +56,13 @@ function DetailsHero() {
               <div className="title">
                 <p>{title}</p>
                 <Percentage percent={data.vote_average} />
-                <button
-                  className="play-icon"
-                  onClick={() => setShowTrailer(!showTrailer)}>
-                  <FaRegPlayCircle />
-                </button>
+                {trailerVideo !== undefined && (
+                  <button
+                    className="play-icon"
+                    onClick={() => setShowTrailer(!showTrailer)}>
+                    <FaRegPlayCircle />
+                  </button>
+                )}
               </div>
 
               <div className="description">
@@ -113,12 +121,6 @@ function DetailsHero() {
               </div>
             </div>
           </div>
-          {showTrailer && (
-            <TrailerFrame
-              trailerVideo={trailerVideo}
-              setShowTrailer={setShowTrailer}
-            />
-          )}
         </DetailsHeroStyles>
       )}
     </Color>
