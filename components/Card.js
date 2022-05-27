@@ -20,8 +20,8 @@ function Card({ movie }) {
           <Image
             src={`${imgURL}${movie.poster_path}`}
             alt={title}
-            layout="fill"
             title={title}
+            layout="fill"
           />
         </div>
       </Link>{" "}

@@ -1,13 +1,17 @@
+import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { FaRegPlayCircle } from "react-icons/fa";
 import Color from "color-thief-react";
 import Percentage from "./Percentage";
 import Loader from "./Loader";
 import { DetailsHeroStyles } from "../styles/DetailsHeroStyles";
 import useDetailsData from "../hooks/useDetailsData";
+import TrailerFrame from "./details/TrailerFrame";
 const imgURL = `https://image.tmdb.org/t/p/w500`;
 
 function DetailsHero() {
+  const [showTrailer, setShowTrailer] = useState(false);
   const { id, media_type } = useRouter().query;
   const { data, isLoading, isError } = useDetailsData(id, media_type);
 
@@ -20,6 +24,9 @@ function DetailsHero() {
   const countries = data.production_countries || data.origin_country;
   const directors = data.credits.crew.filter((crew) => crew.job === "Director");
   const createdBy = data.created_by;
+  const trailerVideo = data.videos.results.find(
+    (video) => video.type.includes("Trailer") && video.site === "YouTube",
+  );
 
   const imgSrc = `${imgURL}${data.poster_path}`;
   return (
@@ -41,10 +48,13 @@ function DetailsHero() {
 
             <div className="content">
               <div className="title">
-                <p>
-                  {title}
-                  <Percentage percent={data.vote_average} />
-                </p>
+                <p>{title}</p>
+                <Percentage percent={data.vote_average} />
+                <button
+                  className="play-icon"
+                  onClick={() => setShowTrailer(!showTrailer)}>
+                  <FaRegPlayCircle />
+                </button>
               </div>
 
               <div className="description">
@@ -103,6 +113,12 @@ function DetailsHero() {
               </div>
             </div>
           </div>
+          {showTrailer && (
+            <TrailerFrame
+              trailerVideo={trailerVideo}
+              setShowTrailer={setShowTrailer}
+            />
+          )}
         </DetailsHeroStyles>
       )}
     </Color>

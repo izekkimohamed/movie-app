@@ -32,40 +32,23 @@ function Details() {
   const recommendations = data.recommendations.results.filter(
     (recommendation, i) => i < 10,
   );
-  const trailerVideo = data.videos.results.find(
-    (video) => video.type.includes("Trailer") && video.site === "YouTube",
-  );
 
   return (
-    <>
-      {trailerVideo && (
-        <iframe
-          title="trailer"
-          width="560"
-          height="315"
-          src={`https://www.youtube.com/embed/${trailerVideo.key}?
-        rel=0&autoplay=1&showinfo=0&modestbranding=1`}
-          frameBorder="0"
-          allow=" autoplay"
-          allowFullScreen
-        />
+    <DetailsStyles>
+      <CastList casts={cast} />
+      <Status
+        budget={budget}
+        revenue={revenue}
+        external_ids={external_ids}
+        status={status}
+        original_language={original_languge}
+        homepage={homepage}
+      />
+      {reviews.results.length > 0 && <Reviews reviews={reviews} />}
+      {recommendations.length > 0 && (
+        <Recommendations recommendations={recommendations} />
       )}
-      <DetailsStyles>
-        <CastList casts={cast} />
-        <Status
-          budget={budget}
-          revenue={revenue}
-          external_ids={external_ids}
-          status={status}
-          original_language={original_languge}
-          homepage={homepage}
-        />
-        {reviews.results.length > 0 && <Reviews reviews={reviews} />}
-        {recommendations.length > 0 && (
-          <Recommendations recommendations={recommendations} />
-        )}
-      </DetailsStyles>
-    </>
+    </DetailsStyles>
   );
 }
 

@@ -39,6 +39,7 @@ export const DetailsStyles = styled.div`
     scroll-behavior: smooth;
     width: 100%;
     margin-top: 3.5rem;
+    padding-bottom: 2rem;
   }
   .cast-item {
     min-width: 150px;
@@ -92,6 +93,7 @@ export const DetailsStyles = styled.div`
   .recommendations {
     grid-column: span 2;
     max-width: 80%;
+    padding-bottom: 2rem;
     @media (max-width: 768px) {
       max-width: 100%;
     }

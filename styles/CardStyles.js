@@ -30,7 +30,7 @@ export const CardStyles = styled.li`
       display: grid;
       place-items: center;
       width: 100%;
-      height: 100%;
+      height: 30%;
       font-size: 5em;
       font-weight: bold;
       position: absolute;
@@ -40,8 +40,8 @@ export const CardStyles = styled.li`
       z-index: 5;
       background: linear-gradient(
         to bottom,
-        rgba(25, 26, 31, 0.8) 1%,
-        transparent 100%
+        rgba(25, 26, 31, 0.9),
+        rgba(25, 26, 31, 0.1)
       );
       transition: transform 0.2s ease-in-out;
       pointer-events: none;

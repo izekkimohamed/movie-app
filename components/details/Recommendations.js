@@ -2,6 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Card from "../Card";
+import CardsList from "../CardsList";
 
 function Recommendations({ recommendations }) {
   const placeHolderImg = "via.placeholder.com/300x300";
@@ -14,28 +16,7 @@ function Recommendations({ recommendations }) {
             recommendations.map((recommendation, i) => {
               const imgSrc = `https://image.tmdb.org/t/p/w300${recommendation.poster_path}`;
 
-              return (
-                <Link
-                  href={`/details/${recommendation.id}?media_type=${recommendation.media_type}`}
-                  passHref
-                  key={recommendation.id}>
-                  <div className="cast-item pointer">
-                    <div className="cast-item-container">
-                      <Image
-                        layout="responsive"
-                        width={300}
-                        height={450}
-                        src={imgSrc}
-                        alt={recommendation.title}
-                      />
-                      <div className="cast-item-info">
-                        <h3>{recommendation.title || recommendation.name}</h3>
-                        <p>{recommendation.release_date}</p>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              );
+              return <CardsList key={i} movies={[recommendation]} />;
             })}
         </div>
       </div>
