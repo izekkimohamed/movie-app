@@ -53,4 +53,7 @@ button {
   .pointer{
     cursor: pointer;
   }
+  body{
+    overflow-y: ${(props) => (props.trailer ? "hidden" : "scroll")};
+  }
 `;

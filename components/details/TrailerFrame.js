@@ -1,30 +1,30 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
-function TrailerFrame({ trailerVideo, setShowTrailer }) {
+function TrailerFrame({ trailerVideo, hideTrailer }) {
   const trailerRef = useRef();
 
   useEffect(() => {
     const trailer = trailerRef.current;
     trailer.addEventListener("click", () => {
-      setShowTrailer(false);
+      hideTrailer();
     });
     window.addEventListener("keyup", (e) => {
       if (e.keyCode === 27) {
-        setShowTrailer(false);
+        hideTrailer();
       }
     });
     return () => {
       trailer.removeEventListener("click", () => {
-        setShowTrailer(false);
+        hideTrailer();
       });
       window.removeEventListener("keyup", (e) => {
         if (e.keyCode === 27) {
-          setShowTrailer(false);
+          hideTrailer();
         }
       });
     };
-  }, [setShowTrailer]);
+  }, [trailerRef, hideTrailer]);
 
   return (
     <IfraeStyles ref={trailerRef}>

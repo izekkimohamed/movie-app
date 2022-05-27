@@ -1,6 +1,6 @@
-import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import create from "zustand";
 import { FaRegPlayCircle } from "react-icons/fa";
 import Color from "color-thief-react";
 import Percentage from "./Percentage";
@@ -10,8 +10,16 @@ import useDetailsData from "../hooks/useDetailsData";
 import TrailerFrame from "./details/TrailerFrame";
 const imgURL = `https://image.tmdb.org/t/p/w500`;
 
+export const useStore = create((set) => ({
+  trailer: false,
+  showTrailer: () => set((state) => ({ trailer: true })),
+  hideTrailer: () => set((state) => ({ trailer: false })),
+}));
 function DetailsHero() {
-  const [showTrailer, setShowTrailer] = useState(false);
+  const trailer = useStore((state) => state.trailer);
+  const showTrailer = useStore((state) => state.showTrailer);
+  const hideTrailer = useStore((state) => state.hideTrailer);
+
   const { id, media_type } = useRouter().query;
   const { data, isLoading, isError } = useDetailsData(id, media_type);
 
@@ -27,16 +35,16 @@ function DetailsHero() {
   const trailerVideo = data.videos.results.find(
     (video) => video.type.includes("Trailer") && video.site === "YouTube",
   );
-  console.log(trailerVideo);
+
   const imgSrc = `${imgURL}${data.poster_path}`;
   return (
     <Color src={imgSrc} format="hex" crossOrigin="anonymous" quality="10">
       {({ data: color, loading, error }) => (
         <DetailsHeroStyles color={color} src={src}>
-          {showTrailer && (
+          {trailer && (
             <TrailerFrame
               trailerVideo={trailerVideo}
-              setShowTrailer={setShowTrailer}
+              hideTrailer={hideTrailer}
             />
           )}
           <div className="container">
@@ -57,9 +65,7 @@ function DetailsHero() {
                 <p>{title}</p>
                 <Percentage percent={data.vote_average} />
                 {trailerVideo !== undefined && (
-                  <button
-                    className="play-icon"
-                    onClick={() => setShowTrailer(!showTrailer)}>
+                  <button className="play-icon" onClick={showTrailer}>
                     <FaRegPlayCircle />
                   </button>
                 )}

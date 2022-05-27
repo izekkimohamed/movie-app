@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { NavbarStyles } from "../styles/NavbarStyles";
+import Search from "./Search";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,12 +64,7 @@ function Navbar() {
               </a>
             </Link>
           </div>
-          <div className="search">
-            <label htmlFor="search">
-              <FaSearch />
-            </label>
-            <input type="text" placeholder="Search" id="search" />
-          </div>
+          <Search />
         </div>
       </div>
     </NavbarStyles>

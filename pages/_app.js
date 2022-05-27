@@ -1,5 +1,7 @@
 import Head from "next/head";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { useStore } from "../components/DetailsHero";
+
 import Layout from "../components/Layout";
 
 import { GlobalStyles } from "/styles/GlobalStyles";
@@ -7,6 +9,8 @@ import { GlobalStyles } from "/styles/GlobalStyles";
 const client = new QueryClient();
 
 function MyApp({ Component, pageProps }) {
+  const trailer = useStore((state) => state.trailer);
+
   return (
     <>
       <Head>
@@ -14,7 +18,7 @@ function MyApp({ Component, pageProps }) {
         <title>Med Movies</title>
       </Head>
       <QueryClientProvider client={client}>
-        <GlobalStyles />
+        <GlobalStyles trailer={trailer} />
         <Layout>
           <Component {...pageProps} />
         </Layout>
