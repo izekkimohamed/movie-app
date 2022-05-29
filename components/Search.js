@@ -8,7 +8,7 @@ export default function SearchForm() {
 
   const [search, setSearch] = useState("");
   const [text, setText] = useState("");
-  const { searchResults, setSearchResults } = useStore((state) => state);
+  const { setSearchResults } = useStore((state) => state);
 
   const fetchSearch = useCallback(() => {
     debounce((text) => {
