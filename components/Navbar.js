@@ -2,9 +2,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { NavbarStyles } from "../styles/NavbarStyles";
-import Search from "./Search";
+import SearchForm from "./Search";
 
-function Navbar() {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scroll, setScroll] = useState(0);
   const [innerHeight, setInnerHeight] = useState(0);
@@ -64,11 +64,9 @@ function Navbar() {
               </a>
             </Link>
           </div>
-          <Search />
+          <SearchForm />
         </div>
       </div>
     </NavbarStyles>
   );
 }
-
-export default Navbar;

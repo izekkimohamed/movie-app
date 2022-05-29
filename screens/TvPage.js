@@ -4,6 +4,7 @@ import useTvData from "../hooks/useTvData";
 
 function TvPage() {
   const { data, isLoading, isError } = useTvData();
+  console.log(data);
 
   if (isLoading) {
     return <Loader />;
@@ -12,7 +13,14 @@ function TvPage() {
     return <h1>Error</h1>;
   }
 
-  return <PagesContainer section="Popular Tv Shows" movies={data} media="tv" />;
+  return (
+    <PagesContainer
+      section="Popular Tv Shows"
+      movies={data.movies}
+      media="tv"
+      totalPages={data.total_pages}
+    />
+  );
 }
 
 export default TvPage;

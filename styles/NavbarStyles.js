@@ -20,7 +20,7 @@ export const NavbarStyles = styled.nav`
   width: clamp(100vw, 100vw, 1660px);
   height: 5rem;
   background-color: ${({ scrollPercent, isOpen }) =>
-    scrollPercent > 15 // 15%
+    scrollPercent > 5 // 5%
       ? "rgba(25, 26, 31, 0.99)"
       : isOpen
       ? "rgba(25, 26, 31, 0.99)"

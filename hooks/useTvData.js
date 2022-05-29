@@ -13,12 +13,17 @@ export default function useTvData() {
       axios.get(`/api/tv?page=${currentPage}&type=on_the_air`),
       axios.get(`/api/tv?page=${nextPage}&type=on_the_air`),
     ]);
-    const movies = [...movies1.data.results, ...movie2.data.results];
+    const data = [...movies1.data.results, ...movie2.data.results];
+    const totalPages = movies1.data.total_pages;
 
-    return movies.map((movie) => ({
+    const movies = data.map((movie) => ({
       ...movie,
       media_type: "tv",
     }));
+    return {
+      movies,
+      total_pages: totalPages,
+    };
   }
 
   return useQuery(["tv", currentPage], fetchMovies, {

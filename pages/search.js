@@ -1,7 +1,7 @@
-import React from "react";
+import SearchPage from "../screens/SearchPage";
 
 function search() {
-  return <div>search</div>;
+  return <SearchPage />;
 }
 
 export default search;

@@ -8,7 +8,7 @@ import { GlobalStyles } from "/styles/GlobalStyles";
 
 const client = new QueryClient();
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   const trailer = useStore((state) => state.trailer);
 
   return (
@@ -26,5 +26,3 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
-
-export default MyApp;
