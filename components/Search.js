@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
