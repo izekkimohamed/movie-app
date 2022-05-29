@@ -1,11 +1,15 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import useDebounce from "../hooks/useDdebounce";
+import useSearch from "../hooks/useSerachData";
 
 export default function SearchForm() {
   const router = useRouter();
-
   const [search, setSearch] = useState("");
+  const debouncedSearch = useDebounce(search, 1000);
+
+  const { data, isLoading, isError } = useSearch(debouncedSearch);
 
   function handleChange(event) {
     setSearch(event.target.value);

@@ -8,7 +8,7 @@ export default function SearchPage() {
   const { data, isLoading, isError } = useSearch();
 
   if (isLoading) return <Loader />;
-  console.log(data);
+
   return (
     data && (
       <PagesContainer
