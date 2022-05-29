@@ -8,6 +8,10 @@ const imgURL = "https://image.tmdb.org/t/p/w300";
 function Card({ movie }) {
   const title = movie.title || movie.name;
   const releaseDate = movie.release_date || movie.first_air_date || "-";
+  const imgSrc =
+    movie.poster_path !== null
+      ? imgURL + movie.poster_path
+      : "/placeholder.png";
   return (
     <CardStyles>
       <div className="percent">
@@ -17,12 +21,7 @@ function Card({ movie }) {
         href={`/details/${movie.id}?media_type=${movie.media_type}`}
         passHref>
         <div className="poster pointer">
-          <Image
-            src={`${imgURL}${movie.poster_path}`}
-            alt={title}
-            title={title}
-            layout="fill"
-          />
+          <Image src={imgSrc} alt={title} title={title} layout="fill" />
         </div>
       </Link>{" "}
       <div className="details">

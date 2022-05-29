@@ -9,12 +9,13 @@ export default function SearchForm() {
   const [search, setSearch] = useState("");
   const [text, setText] = useState("");
   const { setSearchResults } = useStore((state) => state);
+  //http://localhost:3000/api/search?q=matrix
 
   const fetchSearch = useCallback(() => {
     debounce((text) => {
       if (text !== "") {
         setText(text);
-        fetch(`/api/search?q=${text}`)
+        fetch(`http://localhost:3000/api/search?q=${text}`)
           .then((res) => res.json())
           .then((data) => {
             setSearchResults({

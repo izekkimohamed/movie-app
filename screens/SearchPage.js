@@ -8,7 +8,7 @@ export default function SearchPage() {
   const { searchResults, setSearchResults } = useStore((state) => state);
 
   function fetchSearchData(text, p) {
-    fetch(`/api/search?q=${text}&page=${p}`)
+    fetch(`http://localhost:3000/api/search?q=${text}&page=${p}`)
       .then((res) => res.json())
       .then((data) => {
         setSearchResults({
