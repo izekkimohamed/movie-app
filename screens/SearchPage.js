@@ -6,7 +6,7 @@ export default function SearchPage() {
   const { q, page } = useRouter().query;
   const p = page || 1;
   const { searchResults, setSearchResults } = useStore((state) => state);
-  console.log(q, searchResults.searchTerm);
+
   function fetchSearchData(text, p) {
     fetch(`/api/search?q=${text}&page=${p}`)
       .then((res) => res.json())
@@ -30,7 +30,7 @@ export default function SearchPage() {
   return (
     searchResults && (
       <PagesContainer
-        section="Search Results"
+        section={`Search results for "${searchResults.searchTerm}"`}
         movies={searchResults.movies}
         media="search"
         q={q}

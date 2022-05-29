@@ -4,7 +4,6 @@ import useTvData from "../hooks/useTvData";
 
 function TvPage() {
   const { data, isLoading, isError } = useTvData();
-  console.log(data);
 
   if (isLoading) {
     return <Loader />;

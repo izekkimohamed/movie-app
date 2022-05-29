@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
@@ -11,9 +10,10 @@ export default function SearchForm() {
   const [text, setText] = useState("");
   const { searchResults, setSearchResults } = useStore((state) => state);
 
-  const fetchSearch = useCallback(
+  const fetchSearch = useCallback(() => {
     debounce((text) => {
       if (text !== "") {
+        setText(text);
         fetch(`/api/search?q=${text}`)
           .then((res) => res.json())
           .then((data) => {
@@ -25,9 +25,8 @@ export default function SearchForm() {
             });
           });
       }
-    }, 1000),
-    [text],
-  );
+    }, 1000);
+  }, [setSearchResults]);
 
   function handleChange(event) {
     setSearch(event.target.value);
