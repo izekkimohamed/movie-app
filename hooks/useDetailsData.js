@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import { useQuery } from "react-query";
 const key = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 

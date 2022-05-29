@@ -16,9 +16,7 @@ export const useStore = create((set) => ({
   hideTrailer: () => set((state) => ({ trailer: false })),
 }));
 function DetailsHero() {
-  const trailer = useStore((state) => state.trailer);
-  const showTrailer = useStore((state) => state.showTrailer);
-  const hideTrailer = useStore((state) => state.hideTrailer);
+  const { trailer, showTrailer, hideTrailer } = useStore((state) => state);
 
   const { id, media_type } = useRouter().query;
   const { data, isLoading, isError } = useDetailsData(id, media_type);
