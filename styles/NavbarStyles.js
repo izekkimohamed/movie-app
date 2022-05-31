@@ -34,7 +34,7 @@ export const NavbarStyles = styled.nav`
   transform: ${({ show }) => (show ? "translateY(0)" : "translateY(-100%)")};
   transition: all 0.2s ease-in-out;
   z-index: 100;
-  overflow: hidden;
+
   @media (max-width: 768px) {
     height: auto;
   }
@@ -137,10 +137,63 @@ export const NavbarStyles = styled.nav`
       justify-content: center;
       gap: 0.5rem;
       padding: 0.5em 1em;
-      background-color: rgba(255, 255, 255, 0.3);
-      color: #fff;
-      border-radius: 50px;
+      background-color: rgb(255 255 255 / 70%);
+      color: #111;
+      border-radius: 10px 10px;
+      position: relative;
+      .search-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #191a1f;
+        border-radius: 10px 10px;
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        li {
+          padding: 0.2rem 0.5rem;
 
+          &:nth-child(odd) {
+            background-color: #383a43;
+          }
+        }
+        .details {
+          width: 70%;
+          p {
+            max-width: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+          }
+        }
+        .see-all {
+          display: grid;
+          place-items: center;
+        }
+        .search-item {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 0.5rem;
+          padding: 0.5em 1em;
+          border-bottom: 1px solid #eee;
+        }
+      }
+
+      .img-container {
+        width: 30%;
+        aspect-ratio: 1;
+        position: relative;
+      }
+      .search-list-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #fff;
+        font-size: clamp(0.8rem, 1vw, 1rem);
+      }
       input {
         all: unset;
         ::placeholder {
