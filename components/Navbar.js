@@ -1,11 +1,18 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import create from "zustand";
 import { NavbarStyles } from "../styles/NavbarStyles";
 import SearchForm from "./Search";
 
+export const useStore = create((set) => ({
+  isOpen: false,
+  closeMenu: () => set((state) => ({ isOpen: false })),
+  openMenu: () => set((state) => ({ isOpen: true })),
+}));
+
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, closeMenu, openMenu } = useStore((state) => state);
   const [scroll, setScroll] = useState(0);
   const [innerHeight, setInnerHeight] = useState(0);
   const scrollPercent = Math.ceil((scroll / innerHeight) * 100);
@@ -39,9 +46,9 @@ export default function Navbar() {
           </div>
           <div className="hamberger-menu">
             {isOpen ? (
-              <FaTimes onClick={() => setIsOpen(false)} className="menu" />
+              <FaTimes onClick={() => closeMenu(false)} className="menu" />
             ) : (
-              <FaBars onClick={() => setIsOpen(true)} className="menu" />
+              <FaBars onClick={() => openMenu(true)} className="menu" />
             )}
           </div>
         </div>
@@ -49,17 +56,17 @@ export default function Navbar() {
         <div id="navbarMenu" className="navbar-menu">
           <div className="navbar-end">
             <Link href="/" passHref>
-              <a className="navbar-item" onClick={() => setIsOpen(false)}>
+              <a className="navbar-item" onClick={() => closeMenu(false)}>
                 Home
               </a>
             </Link>
             <Link href="/movies" passHref>
-              <a className="navbar-item" onClick={() => setIsOpen(false)}>
+              <a className="navbar-item" onClick={() => closeMenu(false)}>
                 Movies
               </a>
             </Link>
             <Link href="/tv" passHref>
-              <a className="navbar-item" onClick={() => setIsOpen(false)}>
+              <a className="navbar-item" onClick={() => closeMenu(false)}>
                 TV
               </a>
             </Link>

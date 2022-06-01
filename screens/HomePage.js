@@ -3,7 +3,7 @@ import CarouselContainer from "../components/Carousel";
 import HomeDetails from "../components/HomeDetails";
 import Loader from "../components/Loader";
 
-function HomePage() {
+export default function HomePage() {
   const {
     movies,
     shows,
@@ -12,13 +12,10 @@ function HomePage() {
     moviesError,
     showsError,
   } = useHomeData();
-
   if (moviesLoading || showsLoading) {
     return <Loader />;
   }
-
   const carouselMovies = movies.filter((movie, i) => i < 8);
-
   return (
     <>
       <CarouselContainer movies={carouselMovies} />
@@ -26,5 +23,3 @@ function HomePage() {
     </>
   );
 }
-
-export default HomePage;
