@@ -12,7 +12,7 @@ export default function SearchForm() {
   const [search, setSearch] = useState("");
   const [displayList, setDisplayList] = useState(false);
   const { closeMenu } = useStore((state) => state);
-  const debouncedSearch = useDebounce(search, 1000);
+  const debouncedSearch = useDebounce(search, 500);
   const { data, isLoading, isError } = useSearch(debouncedSearch);
 
   function handleChange(event) {
@@ -29,6 +29,7 @@ export default function SearchForm() {
   function handleClick(id, media_type) {
     setSearch("");
     setDisplayList(false);
+    closeMenu();
     router.push(`/details/${id}?media_type=${media_type}`);
   }
   return (
