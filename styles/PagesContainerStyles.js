@@ -11,14 +11,14 @@ export const PagesContainerStyles = styled.div`
 
   h3 {
     width: fit-content;
-    font-size: clamp(1.3rem, 1.6vw, 1.6rem);
+    font-size: var(--font-lg);
     font-weight: 400;
     &:after {
       content: "";
       display: block;
       width: 50%;
       height: 1px;
-      background-color: #f5f5f5;
+      background-color: hsl(var(--text-clr));
       margin-top: 0.3rem;
     }
   }

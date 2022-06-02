@@ -9,12 +9,11 @@ export const CardStyles = styled.li`
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1rem 1rem hsl(var(--bg-clr));
   overflow: hidden;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   &:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
     transform: scale(1.1);
   }
   .poster {
@@ -31,18 +30,33 @@ export const CardStyles = styled.li`
       place-items: center;
       width: 100%;
       height: 30%;
-      font-size: 5em;
-      font-weight: bold;
       position: absolute;
       top: 0;
       left: 0;
-      color: #27d2c5;
-      z-index: 5;
+      color: hsl(var(--brand-clr));
       background: linear-gradient(
         to bottom,
-        rgba(25, 26, 31, 0.9),
-        rgba(25, 26, 31, 0.1)
+        hsl(var(--bg-clr) / 0.9),
+        hsl(var(--bg-clr) / 0.1)
       );
+      transition: transform 0.2s ease-in-out;
+      pointer-events: none;
+    }
+    &:before {
+      content: "+";
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: var(--font-xl);
+      font-weight: bolder;
+      color: hsl(var(--brand-clr));
+      z-index: 5;
+      transform: translateY(-101%);
+      background: hsl(var(--bg-clr) / 0.6);
       transition: transform 0.2s ease-in-out;
       pointer-events: none;
     }
@@ -62,16 +76,16 @@ export const CardStyles = styled.li`
     width: 100%;
     padding: 0.5rem;
     z-index: 3;
-    background-color: rgba(25, 26, 31, 1);
+    background-color: hsl(var(--bg-clr) / 0.9);
     .title {
       max-width: 100%;
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-      font-weight: 600;
+      font-weight: 700;
     }
     .date {
-      /* font-weight: 200; */
+      font-weight: 500;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -79,11 +93,11 @@ export const CardStyles = styled.li`
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.8rem;
+        font-size: var(--font-xs);
         padding: 0.2rem 0.5rem;
         border-radius: 0.5rem;
-        border: 1px solid #27d2c5;
-        color: #fff;
+        border: 1px solid hsl(var(--brand-clr));
+        color: hsl(var(--text-clr));
       }
     }
   }

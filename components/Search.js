@@ -5,19 +5,22 @@ import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import useDebounce from "../hooks/useDdebounce";
 import useSearch from "../hooks/useSerachData";
-import { useStore } from "./Navbar";
+import { useStore } from "../store/navStore";
 
 export default function SearchForm() {
   const router = useRouter();
   const [search, setSearch] = useState("");
-  const [displayList, setDisplayList] = useState(false);
-  const { closeMenu } = useStore((state) => state);
+  const { closeMenu, displayList, setDisplayList } = useStore((state) => state);
   const debouncedSearch = useDebounce(search, 500);
-  const { data, isLoading, isError } = useSearch(debouncedSearch);
+  const { data } = useSearch(debouncedSearch);
 
   function handleChange(event) {
     setSearch(event.target.value);
-    setDisplayList(true);
+    if (event.target.value === "") {
+      setDisplayList(false);
+    } else {
+      setDisplayList(true);
+    }
   }
   function handleSubmit(event) {
     event.preventDefault();

@@ -1,7 +1,7 @@
 import { CardsListStyles } from "../styles/CardsListStyles";
 import Card from "./Card";
 
-function CardsList({ section, movies }) {
+export default function CardsList({ section, movies }) {
   return (
     <CardsListStyles>
       {movies && (
@@ -17,5 +17,3 @@ function CardsList({ section, movies }) {
     </CardsListStyles>
   );
 }
-
-export default CardsList;

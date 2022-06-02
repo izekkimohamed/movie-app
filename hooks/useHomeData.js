@@ -1,45 +1,17 @@
-import axios from "axios";
-import { useQuery } from "react-query";
+import useMoviesData from "./useMoviesData";
+import useTvData from "./useTvData";
 
-export default function useHomeData(type) {
+export default function useHomeData() {
   const {
     data: movies,
     isLoading: moviesLoading,
     isError: moviesError,
-  } = useQuery(
-    ["movies", type],
-    () =>
-      axios.get(`/api/movies`).then((res) =>
-        res.data.results.map((movie) => ({
-          ...movie,
-          media_type: "movie",
-        })),
-      ),
-
-    {
-      refetchOnWindowFocus: false,
-      retry: 1,
-    },
-  );
-
+  } = useMoviesData();
   const {
     data: shows,
     isLoading: showsLoading,
     isError: showsError,
-  } = useQuery(
-    ["tv", type],
-    () =>
-      axios.get(`/api/tv`).then((res) =>
-        res.data.results.map((show) => ({
-          ...show,
-          media_type: "tv",
-        })),
-      ),
-    {
-      refetchOnWindowFocus: false,
-      retry: 1,
-    },
-  );
+  } = useTvData();
   return {
     movies,
     shows,

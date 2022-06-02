@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { PaginationStyles } from "../styles/PaginationStyles";
 
-function Pagination({ media, q, totalPages }) {
+export default function Pagination({ media, q, totalPages }) {
   const page = useRouter().query.page;
   const pageNum = page ? parseInt(page) : 1;
 
@@ -51,5 +51,3 @@ function Pagination({ media, q, totalPages }) {
     </PaginationStyles>
   );
 }
-
-export default Pagination;

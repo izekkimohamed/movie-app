@@ -1,5 +1,1 @@
-import HomePage from "../screens/HomePage";
-
-export default function Home() {
-  return <HomePage />;
-}
+export { default } from "../screens/HomePage";

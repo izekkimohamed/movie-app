@@ -15,7 +15,7 @@ function TvPage() {
   return (
     <PagesContainer
       section="Popular Tv Shows"
-      movies={data.movies}
+      movies={data.shows}
       media="tv"
       totalPages={data.total_pages}
     />

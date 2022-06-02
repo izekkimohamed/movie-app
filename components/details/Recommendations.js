@@ -1,11 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
-import Card from "../Card";
 import CardsList from "../CardsList";
 
-function Recommendations({ recommendations }) {
+export default function Recommendations({ recommendations }) {
   const placeHolderImg = "via.placeholder.com/300x300";
   return (
     <div className="recommendations">
@@ -14,8 +10,6 @@ function Recommendations({ recommendations }) {
         <div className="cast-list">
           {recommendations &&
             recommendations.map((recommendation, i) => {
-              const imgSrc = `https://image.tmdb.org/t/p/w300${recommendation.poster_path}`;
-
               return <CardsList key={i} movies={[recommendation]} />;
             })}
         </div>
@@ -23,5 +17,3 @@ function Recommendations({ recommendations }) {
     </div>
   );
 }
-
-export default Recommendations;

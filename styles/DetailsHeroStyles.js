@@ -35,7 +35,7 @@ export const DetailsHeroStyles = styled.div`
     grid-template-columns: 1fr 3fr;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: hsl(var(--bg-clr) / 0.2);
 
     border-radius: 1rem;
     overflow: hidden;
@@ -48,7 +48,6 @@ export const DetailsHeroStyles = styled.div`
       padding: 1rem;
       border-radius: 0;
       margin: 0;
-      /* background-color: transparent; */
       .poster {
         display: none;
       }
@@ -64,8 +63,8 @@ export const DetailsHeroStyles = styled.div`
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      color: #fff;
-      text-shadow: 1px 1px 10px #111;
+      color: hsl(var(--text-clr));
+      text-shadow: 1px 1px 10px hsl(var(--bg-clr));
       margin-left: 3rem;
       @media (max-width: 768px) {
         margin-left: 0;
@@ -76,9 +75,9 @@ export const DetailsHeroStyles = styled.div`
         align-items: center;
         gap: 2rem;
         p {
-          font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+          font-size: var(--font-lg);
           font-weight: 700;
-          color: #fff;
+          color: hsl(var(--text-clr));
         }
       }
       .description {
@@ -95,7 +94,7 @@ export const DetailsHeroStyles = styled.div`
         display: grid;
         grid-template-columns: 0.5fr 3fr;
         gap: 0.5rem;
-        font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+        font-size: var(--font-sm);
         p {
           opacity: 0.7;
         }
@@ -117,15 +116,15 @@ export const DetailsHeroStyles = styled.div`
     position: relative;
     width: 50px;
     height: 50px;
-    color: #ccc;
+    color: hsl(var(--text-clr));
     margin-right: 1rem;
     &:before {
       content: "";
       width: 100%;
       height: 100%;
       position: absolute;
-      background-color: rgba(255, 255, 255, 0.3);
-      border: 2px solid #fff;
+      background-color: hsl(var(--text-clr) / 0.3);
+      border: 2px solid hsl(var(--text-clr));
       border-radius: 100px;
       animation: ${pulse} 1.5s infinite cubic-bezier(0.11, 1.3, 0.26, 1.35);
     }
@@ -134,8 +133,8 @@ export const DetailsHeroStyles = styled.div`
       width: 100%;
       height: 100%;
       position: absolute;
-      background-color: rgba(255, 255, 255, 0.3);
-      border: 2px solid #fff;
+      background-color: hsl(var(--text-clr) / 0.3);
+      border: 2px solid hsl(var(--text-clr));
       border-radius: 100px;
       animation: ${pulse} 1.5s infinite cubic-bezier(0.11, 1.3, 0.26, 1.35);
     }

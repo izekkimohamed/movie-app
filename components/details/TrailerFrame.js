@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
-function TrailerFrame({ trailerVideo, hideTrailer }) {
+export default function TrailerFrame({ trailerVideo, hideTrailer }) {
   const trailerRef = useRef();
 
   useEffect(() => {
@@ -52,4 +52,3 @@ const IfraeStyles = styled.div`
   align-items: center;
   z-index: 100;
 `;
-export default TrailerFrame;

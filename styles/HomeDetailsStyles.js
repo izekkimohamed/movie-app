@@ -14,7 +14,7 @@ export const HomeDetailsStyles = styled.div`
     top: 2rem;
     left: 10em;
     background-color: transparent;
-    border: 1px solid #27d2c5;
+    border: 1px solid hsl(var(--brand-clr));
     overflow: hidden;
     border-radius: 5rem;
     @media (max-width: 768px) {
@@ -28,7 +28,7 @@ export const HomeDetailsStyles = styled.div`
       display: block;
       width: 50%;
       height: 100%;
-      background-color: #27d2c5;
+      background-color: hsl(var(--brand-clr));
       position: absolute;
       top: 0;
       left: 0;
@@ -44,12 +44,12 @@ export const HomeDetailsStyles = styled.div`
       all: unset;
       padding: 0.2rem 1rem;
       border-radius: 5rem;
-      font-size: clamp(1rem, 1.2vw, 1.2rem);
-      font-weight: 400;
+      font-size: var(--font-md);
+      font-weight: 500;
       cursor: pointer;
     }
     .active {
-      color: #111;
+      color: hsl(var(--bg-clr));
     }
   }
 `;

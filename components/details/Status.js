@@ -1,8 +1,7 @@
-import React from "react";
 import { BsFacebook, BsInstagram, BsLink, BsTwitter } from "react-icons/bs";
 import { FaImdb } from "react-icons/fa";
 
-function Status({
+export default function Status({
   budget,
   revenue,
   external_ids,
@@ -90,5 +89,3 @@ function Status({
     </div>
   );
 }
-
-export default Status;

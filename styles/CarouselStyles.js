@@ -31,12 +31,13 @@ export const CarouselStyles = styled(Carousel)`
     content: "";
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      to right,
-      rgba(25, 26, 31, 0.8) 50%,
-      rgba(25, 26, 31, 0.1) 80%,
-      rgba(25, 26, 31, 0.8) 100%
+    background: radial-gradient(
+      circle closest-side,
+      hsl(var(--bg-clr) / 0.3) 30%,
+      hsl(var(--bg-clr) / 0.5) 50%,
+      hsl(var(--bg-clr) / 0.7)
     );
+
     pointer-events: none;
     z-index: 1;
   }
@@ -45,12 +46,12 @@ export const CarouselStyles = styled(Carousel)`
     top: 50%;
     width: 40px;
     height: 40px;
-    background-color: rgba(0 0 0 / 90%);
+    background-color: hsl(var(--bg-clr));
     border-radius: 50%;
     margin-inline: 0.5em;
   }
   .control-dots .dot {
-    background-color: #27d2c5;
+    background-color: hsl(var(--brand-clr));
   }
   .content {
     max-width: 1660px;
@@ -68,7 +69,7 @@ export const CarouselStyles = styled(Carousel)`
     align-items: flex-start;
     text-align: left;
     gap: 0.5rem;
-    color: #bbb;
+    color: hsl(var(--text-clr) / 0.8);
 
     z-index: 2;
     a {
@@ -80,12 +81,11 @@ export const CarouselStyles = styled(Carousel)`
     }
   }
   .details {
-    font-size: clamp(1rem, 1.5vw, 1.5rem);
   }
   .title {
-    font-size: clamp(1.3rem, 2vw, 2.5rem);
+    font-size: var(--font-lg);
     font-weight: 700;
-    text-shadow: 0 0 0.5rem #000;
+    text-shadow: 0 0 0.5rem hsl(var(--bg-clr));
   }
   .buttons {
     display: flex;
@@ -94,18 +94,16 @@ export const CarouselStyles = styled(Carousel)`
     margin: 1em 0;
     border-radius: 50px;
     overflow: hidden;
-    border: 1.5px solid #27d2c5;
+    border: 1.5px solid hsl(var(--brand-clr));
     a {
-      color: #111;
       font-family: inherit;
-      font-size: clamp(1rem, 1.2vw, 1.2rem);
+      font-size: var(--font-sm);
       font-weight: 500;
       padding: 0.5rem 2rem;
       transition: all 0.2s ease-in-out;
-      color: #f4f4f4;
       &:hover {
-        background-color: #27d2c5;
-        color: #111;
+        background-color: hsl(var(--brand-clr));
+        color: hsl(var(--bg-clr));
       }
       @media (max-width: 768px) {
         padding: 0.4rem 1rem;
@@ -114,10 +112,8 @@ export const CarouselStyles = styled(Carousel)`
   }
   .desc {
     max-width: clamp(60%, 50vw, 500px);
-    font-size: clamp(1rem, 1.3vw, 1.3rem);
     font-weight: 400;
-    text-shadow: 0 0 0.5rem #000;
-    color: #fff;
+    text-shadow: 0 0 0.5rem hsl(var(--bg-clr));
     transition: all 0.2s ease-in-out;
     white-space: nowrap;
     text-overflow: ellipsis;

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { useStore } from "../components/DetailsHero";
+import { useStore } from "../store/detailsStore";
 
 import Layout from "../components/Layout";
 

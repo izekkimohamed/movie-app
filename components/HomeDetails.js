@@ -3,7 +3,7 @@ import { HomeDetailsStyles } from "../styles/HomeDetailsStyles";
 
 import CardsList from "./CardsList";
 
-function HomeDetails({ movies, shows }) {
+export default function HomeDetails({ movies, shows }) {
   const [activeTab, setActiveTab] = useState("movies");
 
   return (
@@ -27,5 +27,3 @@ function HomeDetails({ movies, shows }) {
     </HomeDetailsStyles>
   );
 }
-
-export default HomeDetails;

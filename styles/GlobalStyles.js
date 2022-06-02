@@ -1,11 +1,26 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+ :root {
+
+   --brand-clr: 175  69% 49%;
+   --bg-clr: 230  11% 11%;
+   --text-clr: 214  32% 91%;
+ 
+  --font-xs: clamp(0.5rem, 1vw, 1rem);
+  --font-sm: clamp(0.8rem, 1.2vw, 1.2rem);
+  --font-md: clamp(1.2rem, 1.5vw, 1.5rem);
+  --font-lg: clamp(1.6rem, 2vw, 2rem);
+  --font-xl: clamp(2.4rem, 2.5vw, 2.5rem);
+ }
+
+
+
   html {
     font-size: 16px;
     font-weight: normal;
     font-family:"Poppins", sans-serif;
-    color:#fff ;
+    color: hsl(var(--text-clr)); ;
   }
 
 *, *:before, *:after {
@@ -16,8 +31,8 @@ export const GlobalStyles = createGlobalStyle`
   
  
   body{
-  max-width: 100vw;
-   background-color: #191a1f;
+   background-color: hsl(var(--bg-clr) / .95);
+   overflow-y: ${(props) => (props.trailer ? "hidden" : "scroll")};
 }
 
 ol, ul {
@@ -32,7 +47,7 @@ img {
 a {
     text-decoration: none;
     cursor: pointer;
-    color:#fff ;
+    color: hsl(var(--text-clr)); ;
 }
 
 button {
@@ -52,8 +67,5 @@ button {
   }
   .pointer{
     cursor: pointer;
-  }
-  body{
-    overflow-y: ${(props) => (props.trailer ? "hidden" : "scroll")};
   }
 `;

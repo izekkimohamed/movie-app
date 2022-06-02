@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import create from "zustand";
 import { FaRegPlayCircle } from "react-icons/fa";
 import Color from "color-thief-react";
 import Percentage from "./Percentage";
@@ -8,14 +7,10 @@ import Loader from "./Loader";
 import { DetailsHeroStyles } from "../styles/DetailsHeroStyles";
 import useDetailsData from "../hooks/useDetailsData";
 import TrailerFrame from "./details/TrailerFrame";
+import { useStore } from "../store/detailsStore";
 const imgURL = `https://image.tmdb.org/t/p/w500`;
 
-export const useStore = create((set) => ({
-  trailer: false,
-  showTrailer: () => set((state) => ({ trailer: true })),
-  hideTrailer: () => set((state) => ({ trailer: false })),
-}));
-function DetailsHero() {
+export default function DetailsHero() {
   const { trailer, showTrailer, hideTrailer } = useStore((state) => state);
 
   const { id, media_type } = useRouter().query;
@@ -36,8 +31,8 @@ function DetailsHero() {
 
   const imgSrc = `${imgURL}${data.poster_path}`;
   return (
-    <Color src={imgSrc} format="hex" crossOrigin="anonymous" quality="10">
-      {({ data: color, loading, error }) => (
+    <Color src={imgSrc} format="hex" crossOrigin="anonymous" quality="20">
+      {({ data: color }) => (
         <DetailsHeroStyles color={color} src={src}>
           {trailer && (
             <TrailerFrame
@@ -130,5 +125,3 @@ function DetailsHero() {
     </Color>
   );
 }
-
-export default DetailsHero;

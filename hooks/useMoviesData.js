@@ -13,7 +13,10 @@ export default function useMoviesData() {
       axios.get(`/api/movies?page=${currentPage}`),
       axios.get(`/api/movies?page=${nextPage}`),
     ]);
-    const data = [...movies1.data.results, ...movie2.data.results];
+    const data = [
+      ...movies1.data.results,
+      ...movie2.data.results.filter((_, i) => i !== 0),
+    ];
     const totalPages = movies1.data.total_pages;
 
     const movies = data.map((movie) => ({

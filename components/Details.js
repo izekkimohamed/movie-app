@@ -7,11 +7,11 @@ import Reviews from "./details/Reviews";
 import Status from "./details/Status";
 import Loader from "./Loader";
 
-function Details() {
+export default function Details() {
   const { id, media_type } = useRouter().query;
   const { data, isLoading, isError } = useDetailsData(id, media_type);
 
-  if (!data) {
+  if (isLoading) {
     return <Loader />;
   }
   if (isError) {
@@ -29,9 +29,7 @@ function Details() {
     homepage,
   } = data;
   const cast = credits.cast.filter((cast, i) => i < 10);
-  const recommendations = data.recommendations.results.filter(
-    (recommendation, i) => i < 10,
-  );
+  const recommendations = data.recommendations.results.filter((_, i) => i < 10);
 
   return (
     <DetailsStyles>
@@ -51,5 +49,3 @@ function Details() {
     </DetailsStyles>
   );
 }
-
-export default Details;

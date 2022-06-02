@@ -5,14 +5,14 @@ export const CardsListStyles = styled.div`
   gap: 1rem;
   h2 {
     width: fit-content;
-    font-size: 1.5rem;
+    font-size: var(--font-md);
     font-weight: bold;
     &:after {
       content: "";
       display: block;
       width: 50%;
       height: 1px;
-      background-color: #e6e6e655;
+      background-color: var(hsl(--bg-clr));
       margin-top: 0.5rem;
     }
   }
@@ -21,7 +21,7 @@ export const CardsListStyles = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     grid-auto-rows: minmax(350px, auto);
-    grid-gap: 1rem;
+    grid-gap: 2rem 0.8rem;
     list-style: none;
   }
 `;

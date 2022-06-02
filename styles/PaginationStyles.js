@@ -15,20 +15,20 @@ export const PaginationStyles = styled.ul`
       height: 3rem;
       display: grid;
       place-items: center;
-      color: #f5f5f5;
-      font-size: 1.2rem;
+      color: hsl(var(--text-clr));
+      font-size: var(--font-md);
       font-weight: 500;
-      background-color: #384048;
+      background-color: hsl(var(--bg-clr));
       border-radius: 5px;
       transition: all 0.3s ease-in-out;
       user-select: none;
       &:hover {
-        background-color: #212529;
+        background-color: hsl(var(--brand-clr) / 0.5);
       }
       &.active {
         pointer-events: none;
-        background-color: #27d2c5;
-        color: #111;
+        background-color: hsl(var(--brand-clr));
+        color: hsl(var(--bg-clr));
       }
     }
   }

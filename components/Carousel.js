@@ -7,8 +7,13 @@ const imgURL = "https://image.tmdb.org/t/p/original";
 
 export default function CarouselContainer({ movies }) {
   return (
-    <CarouselStyles showStatus={false} showThumbs={false}>
-      {movies.map((movie, i) => {
+    <CarouselStyles
+      showStatus={false}
+      showThumbs={false}
+      infiniteLoop
+      autoPlay
+      interval={5000}>
+      {movies.map((movie) => {
         return (
           <div key={movie.id} className="slider-item">
             <div className="content">

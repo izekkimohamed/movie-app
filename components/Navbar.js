@@ -1,42 +1,21 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import create from "zustand";
+import { useScroller } from "../libs/scroller";
+import { useStore } from "../store/navStore";
 import { NavbarStyles } from "../styles/NavbarStyles";
 import SearchForm from "./Search";
 
-export const useStore = create((set) => ({
-  isOpen: false,
-  closeMenu: () => set((state) => ({ isOpen: false })),
-  openMenu: () => set((state) => ({ isOpen: true })),
-}));
-
 export default function Navbar() {
-  const { isOpen, closeMenu, openMenu } = useStore((state) => state);
-  const [scroll, setScroll] = useState(0);
-  const [innerHeight, setInnerHeight] = useState(0);
-  const scrollPercent = Math.ceil((scroll / innerHeight) * 100);
-  const [show, setShow] = useState(true);
-
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      setInnerHeight(window.innerHeight);
-      setScroll(window.scrollY);
-    });
-    let prevScrollpos = window.pageYOffset;
-    window.onscroll = function () {
-      let currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        setShow(true);
-      } else {
-        setShow(false);
-      }
-      prevScrollpos = currentScrollPos;
-    };
-  }, []);
-
+  const { isOpen, closeMenu, openMenu, displayList } = useStore(
+    (state) => state,
+  );
+  const { scrollPercent, show } = useScroller();
   return (
-    <NavbarStyles isOpen={isOpen} scrollPercent={scrollPercent} show={show}>
+    <NavbarStyles
+      isOpen={isOpen}
+      scrollPercent={scrollPercent}
+      show={show}
+      displayList={displayList}>
       <div className="container">
         <div className="nav-header">
           <div className="navbar-brand">

@@ -1,11 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import Percentage from "./Percentage";
 import { CardStyles } from "../styles/CardStyles";
-import Image from "next/image";
 
 const imgURL = "https://image.tmdb.org/t/p/w300";
 
-function Card({ movie }) {
+export default function Card({ movie }) {
   const title = movie.title || movie.name;
   const releaseDate = movie.release_date || movie.first_air_date || "-";
   const imgSrc =
@@ -36,5 +36,3 @@ function Card({ movie }) {
     </CardStyles>
   );
 }
-
-export default Card;

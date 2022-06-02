@@ -10,7 +10,7 @@ export const DetailsStyles = styled.div`
   margin-bottom: 10rem;
   position: relative;
   h1 {
-    font-size: 2.5rem;
+    font-size: var(--font-xl);
     font-weight: 700;
     margin-bottom: 1rem;
     grid-column: span 2;
@@ -48,7 +48,7 @@ export const DetailsStyles = styled.div`
     border-radius: 1rem;
     overflow: hidden;
 
-    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.8);
+    box-shadow: 1px 1px 10px 1px hsl(var(--bg-clr));
   }
   .cast-item-info {
     display: flex;
@@ -58,11 +58,11 @@ export const DetailsStyles = styled.div`
     gap: 0.5rem;
     padding: 5px;
     h3 {
-      font-size: 1rem;
+      font-size: var(--font-md);
       font-weight: 800;
     }
     p {
-      font-size: 1rem;
+      font-size: var(--font-sm);
       max-width: 100%;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -81,8 +81,8 @@ export const DetailsStyles = styled.div`
     }
     .review {
       padding: 1rem;
-      background-color: #f5f5f5;
-      color: #111;
+      background-color: hsl(var(--bg-clr) / 0.6);
+      color: hsl(var(--text-clr));
       border-radius: 1rem;
       a {
         color: #0077b5;
@@ -138,7 +138,7 @@ export const DetailsStyles = styled.div`
           width: 100%;
         }
         svg {
-          font-size: 1.5rem;
+          font-size: var(--font-md);
           width: 100%;
           height: 100%;
           transition: all 0.3s ease-in-out;
@@ -173,12 +173,12 @@ export const DetailsStyles = styled.div`
         &:before {
           content: "";
           position: absolute;
-          left: 0;
-          top: 50%;
+          left: -10%;
+          top: 40%;
           transform: translateY(-50%);
-          height: 70%;
+          height: 50%;
           width: 2px;
-          background-color: #bbb;
+          background-color: hsl(var(--text-clr));
         }
       }
     }

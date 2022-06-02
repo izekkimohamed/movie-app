@@ -1,7 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 
-function CastList({ casts }) {
+export default function CastList({ casts }) {
   return (
     <div className="cast-list">
       <h1 className="cast">Cast</h1>
@@ -12,7 +11,7 @@ function CastList({ casts }) {
   );
 }
 
-const Cast = ({ cast }) => {
+function Cast({ cast }) {
   const imgSrc =
     cast.profile_path !== null
       ? `https://image.tmdb.org/t/p/w300/${cast.profile_path}`
@@ -36,6 +35,4 @@ const Cast = ({ cast }) => {
       </div>
     </div>
   );
-};
-
-export default CastList;
+}

@@ -3,13 +3,8 @@ import styled, { keyframes } from "styled-components";
 function Loader() {
   return (
     <LoaderStyles>
-      <div className="spinner">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+      <div className="dots"></div>
+      <p>Loading...</p>
     </LoaderStyles>
   );
 }
@@ -17,19 +12,20 @@ function Loader() {
 export default Loader;
 
 const spinner = keyframes`
-    0% {
-      transform: rotateY(0deg);
+    20% {
+      background-position: 0% 0%, 50% 50%, 100% 50%;
     }
 
-    50%,
+    40% {
+      background-position: 0% 100%, 50% 0%, 100% 50%;
+    }
+
+    60% {
+      background-position: 0% 50%, 50% 100%, 100% 0%;
+    }
+
     80% {
-      transform: rotateY(-180deg);
-    }
-
-    90%,
-    100% {
-      opacity: 0;
-      transform: rotateY(-180deg);
+      background-position: 0% 50%, 50% 50%, 100% 100%;
     }
 
 `;
@@ -38,52 +34,31 @@ export const LoaderStyles = styled.div`
   min-height: 100vh;
   min-width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  .spinner {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    perspective: 100px;
-    &:after {
-      content: "Loading...";
-      position: absolute;
-      top: 200%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    div {
-      width: 100%;
-      height: 100%;
-      background: #27d2c5;
-      position: absolute;
-      left: 50%;
-      transform-origin: left;
-      animation: ${spinner} 2s infinite;
-
-      &:nth-child(1) {
-        animation-delay: 0.15s;
-      }
-
-      &:nth-child(2) {
-        animation-delay: 0.3s;
-      }
-
-      &:nth-child(3) {
-        animation-delay: 0.45s;
-      }
-
-      &:nth-child(4) {
-        animation-delay: 0.6s;
-      }
-
-      &:nth-child(5) {
-        animation-delay: 0.75s;
-      }
-    }
+  gap: 10px;
+  .dots {
+    width: 72px;
+    height: 34.6px;
+    background: radial-gradient(
+          circle closest-side,
+          hsl(var(--brand-clr)) 90%,
+          #0000
+        )
+        0% 50%,
+      radial-gradient(circle closest-side, hsl(var(--brand-clr)) 90%, #0000) 50%
+        50%,
+      radial-gradient(circle closest-side, hsl(var(--brand-clr)) 90%, #0000)
+        100% 50%;
+    background-size: calc(100% / 3) 17.3px;
+    background-repeat: no-repeat;
+    animation: ${spinner} 0.8s infinite linear;
+  }
+  p {
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    font-weight: bold;
+    color: hsl(var(--brand-clr));
+    font-style: italic;
   }
 `;
