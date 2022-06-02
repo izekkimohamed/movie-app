@@ -82,6 +82,7 @@ export const CardStyles = styled.li`
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
+      font-size: var(--font-sm);
       font-weight: 700;
     }
     .date {
@@ -89,6 +90,7 @@ export const CardStyles = styled.li`
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding-top: 0.5em;
       .media-type {
         display: flex;
         align-items: center;

@@ -149,17 +149,16 @@ export const NavbarStyles = styled.nav`
     top: 100%;
     left: 0;
     right: 0;
-    background-color: #191a1f;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+    border-radius: 10px 10px;
     z-index: 100;
     display: flex;
     flex-direction: column;
     li {
       padding: 0.2rem 0.5rem;
+      background-color: hsl(var(--bg-clr));
 
       &:nth-child(odd) {
-        background-color: #383a43;
+        background-color: hsl(var(--bg-clr) / 0.9);
       }
     }
     .details {
@@ -183,7 +182,7 @@ export const NavbarStyles = styled.nav`
       justify-content: space-between;
       gap: 0.5rem;
       padding: 0.5em 1em;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid hsl(var(--text-clr));
     }
   }
 
@@ -201,11 +200,11 @@ export const NavbarStyles = styled.nav`
   }
   input {
     all: unset;
-    font-size: var(--font-md);
+    font-size: var(--font-sm);
     font-weight: 500;
     ::placeholder {
-      color: hsl(var(--bg-clr));
-      font-size: var(--font-md);
+      color: hsl(var(--bg-clr) / 0.5);
+      font-size: var(--font-sm);
       font-weight: 500;
     }
   }

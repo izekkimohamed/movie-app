@@ -44,7 +44,7 @@ export const HomeDetailsStyles = styled.div`
       all: unset;
       padding: 0.2rem 1rem;
       border-radius: 5rem;
-      font-size: var(--font-md);
+      font-size: var(--font-sm);
       font-weight: 500;
       cursor: pointer;
     }

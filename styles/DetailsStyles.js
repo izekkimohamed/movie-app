@@ -58,7 +58,7 @@ export const DetailsStyles = styled.div`
     gap: 0.5rem;
     padding: 5px;
     h3 {
-      font-size: var(--font-md);
+      font-size: var(--font-sm);
       font-weight: 800;
     }
     p {
