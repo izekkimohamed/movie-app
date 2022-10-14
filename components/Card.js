@@ -12,7 +12,7 @@ export default function Card({ movie }) {
     movie.poster_path !== null
       ? imgURL + movie.poster_path
       : "/placeholder.png";
-  return (
+return (
     <CardStyles>
       <div className="percent">
         <Percentage percent={movie.vote_average} />
