@@ -1,29 +1,29 @@
-import { useState } from "react";
-import { HomeDetailsStyles } from "../styles/HomeDetailsStyles";
+import { useState } from 'react'
+import { HomeDetailsStyles } from '../styles/HomeDetailsStyles'
 
-import CardsList from "./CardsList";
+import CardsList from './CardsList'
 
 export default function HomeDetails({ movies, shows }) {
-  const [activeTab, setActiveTab] = useState("movies");
+  const [activeTab, setActiveTab] = useState('movies')
 
   return (
     <HomeDetailsStyles active={activeTab}>
       <div className="btns">
         <button
-          className={activeTab === "movies" ? "active" : ""}
-          onClick={() => setActiveTab("movies")}>
+          className={activeTab === 'movies' ? 'active' : ''}
+          onClick={() => setActiveTab('movies')}
+        >
           Movies
         </button>
         <button
-          className={activeTab === "shows" ? "active" : ""}
-          onClick={() => setActiveTab("shows")}>
+          className={activeTab === 'shows' ? 'active' : ''}
+          onClick={() => setActiveTab('shows')}
+        >
           Shows
         </button>
       </div>
-      {activeTab === "movies" && (
-        <CardsList section="Popular" movies={movies} />
-      )}
-      {activeTab === "shows" && <CardsList section="Popular" movies={shows} />}
+      {activeTab === 'movies' && <CardsList section="Popular" movies={movies} />}
+      {activeTab === 'shows' && <CardsList section="Popular" movies={shows} />}
     </HomeDetailsStyles>
-  );
+  )
 }
