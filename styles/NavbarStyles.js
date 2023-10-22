@@ -17,8 +17,7 @@ export const NavbarStyles = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  max-width: 1660px;
+  width: clamp(100vw, 100vw, 1660px);
   height: 5rem;
   background-color: ${({ scrollPercent, isOpen }) =>
     scrollPercent > 5 // 5%
