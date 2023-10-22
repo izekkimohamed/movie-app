@@ -11,7 +11,7 @@ export const HomeDetailsStyles = styled.div`
     width: fit-content;
     display: flex;
     position: absolute;
-    top: 2rem;
+    top: 1.5rem;
     left: 10em;
     background-color: transparent;
     border: 1px solid hsl(var(--brand-clr));
@@ -42,14 +42,15 @@ export const HomeDetailsStyles = styled.div`
       height: 100%;
       width: 100%;
       all: unset;
-      padding: 0.2rem 1rem;
+      padding: 0.5rem 1rem;
       border-radius: 5rem;
       font-size: var(--font-sm);
-      font-weight: 500;
+      font-weight: bold;
       cursor: pointer;
+      color: hsl(var(--brand-clr));
     }
     .active {
-      color: hsl(var(--bg-clr));
+      color: #f1f1f1;
     }
   }
 `;
